@@ -1,0 +1,24 @@
+import java.util.*;
+public class UVA_10055_HashmatTheBraveWarrior 
+{
+  public static long mod(long X)
+	{
+		if(X >= 0)
+			return X;
+		else
+			return (-1*X);
+	}
+	public static void main(String[] args) 
+	{
+		Scanner in = new Scanner(System.in);
+		long X, Y, Diff;
+		while(in.hasNextLong())
+		{
+			X = in.nextLong();
+			Y = in.nextLong();
+			Diff = mod(Y-X);
+			System.out.println(Diff);
+		}
+		in.close();
+	}
+}
