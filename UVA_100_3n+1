@@ -1,0 +1,54 @@
+import java.util.*;
+public class UVA_100_3nplus1 
+{
+  public static void main(String[] args) 
+	{
+		int i, j;
+		Scanner in = new Scanner(System.in);
+		while(in.hasNextInt())
+		{
+			i=in.nextInt();
+			j=in.nextInt();
+			int cycle = 0;
+			int start, end;
+			if(i<j)
+			{
+				start=i;
+				end=j;
+			}
+			else
+			{
+				start=j;
+				end=i;
+			}
+			int k = start;
+			while(k!=1)
+			{
+				if(k % 2 != 0)
+					k=3*k+1;
+				else
+					k=k/2;
+				cycle++;
+			}
+			int l;
+			int maximum = cycle+1;
+			for(l=start+1; l<=end; l++)
+			{
+				k=l;
+				cycle=0;
+				while(k!=1)
+				{
+					if(k % 2 != 0)
+						k=3*k+1;
+					else
+						k=k/2;
+					cycle++;
+				}
+				if(cycle+1>maximum)
+					maximum = cycle+1;
+			}
+			System.out.println(i + " " + j + " " + maximum);
+		}
+		in.close();
+	}
+}
