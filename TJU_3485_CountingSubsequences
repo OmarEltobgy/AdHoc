@@ -1,0 +1,45 @@
+#include <iostream>
+#include <map>
+#include <stdio.h>
+using namespace std;
+map<double,double> N;
+double numbers[1000100];
+int main()
+{
+    double numOfCases, finish, sum, numOfIntegers;
+    cin >> numOfCases;
+    int i, j, t, m;
+    for(t=0; t<numOfCases; t++)
+    {
+        N.clear();
+        N[0] = 1;
+        cin >> numOfIntegers;
+        sum = 0;
+        finish = 0;
+
+        for(m=0; m<numOfIntegers; m++)
+        {
+            cin >> numbers[m];
+            sum += numbers[m];
+            if(N.count(sum) == 0)
+            {
+                N[sum] = 1;
+            }
+            else
+            {
+                N[sum] ++;
+            }
+            if(N.count(sum-47) != 0)
+            {
+                finish += N[sum-47];
+            }
+        }
+        /*if(N.count(47) != 0)
+        {
+            finish += N[47];
+        }*/
+        printf("%.0lf\n", finish);
+        N.clear();
+    }
+    return 0;
+}
